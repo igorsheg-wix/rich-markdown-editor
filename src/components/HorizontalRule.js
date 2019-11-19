@@ -9,7 +9,7 @@ function HorizontalRule(props: SlateNodeProps) {
 }
 
 const StyledHr = styled.hr`
-  padding-top: 0.75em;
+  margin: 2em 0;
   margin: 0;
   border: 0;
   border-bottom: 1px solid

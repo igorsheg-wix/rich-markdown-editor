@@ -69,8 +69,11 @@ export default function CodeBlock({
 const Code = styled.code`
   display: block;
   overflow-x: auto;
-  padding: 0.5em 1em;
+  padding: 30px;
+  border-radius: 6px;
+  margin: 1em 0;
   line-height: 1.4em;
+  background: #151515;
 
   pre {
     -webkit-font-smoothing: initial;
@@ -92,102 +95,239 @@ const Code = styled.code`
     margin: 0;
   }
 
-  .token.comment,
-  .token.prolog,
-  .token.doctype,
-  .token.cdata {
-    color: ${props => props.theme.codeComment};
-  }
+  .brace.curly ~ .assignment,
+.meta.delimiter.method.period.coffee + span {
+    color: #0bf;
+}
+.embedded .meta.brace.round + span,
+.embedded .brace.curly ~ .assignment,
+.embedded .meta.brace.round + span,
+.embedded .meta.delimiter.method.period.coffee + span {
+    color: #75de00;
+}
 
-  .token.punctuation {
-    color: ${props => props.theme.codePunctuation};
-  }
+pre {
+    position: relative;
+}
+pre code {
+    font-family: "Input", "Menlo", "Monaco", Courier, monospace;
+    font-weight: 500;
+    display: block;
+    font-size: 13px;
+    font-weight: normal;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -webkit-text-size-adjust: 100%;
+    max-width: 600px;
+    background: transparent;
+    color: white;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    padding-right: 40px;
+    padding-bottom: 20px;
+    position: relative;
+}
+pre *::selection {
+    background: rgba(255, 255, 255, 0.25) !important;
+    color: inherit;
+}
+pre code::-webkit-scrollbar {
+    height: 5px;
+}
+pre code::-webkit-scrollbar,
+pre code::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0);
+}
+pre:hover code::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+}
+pre code::-webkit-scrollbar-thumb:horizontal:hover,
+pre code::-webkit-scrollbar-thumb:vertical:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+pre > span {
+    position: relative;
+}
+pre:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to left, #151515, rgba(21, 21, 21, 0));
+    pointer-events: none;
+}
+pre code span {
+    line-height: 1.6;
+}
 
-  .token.namespace {
-    opacity: .7;
-  }
+code[class*="language-"] {
+    text-align: left;
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 1.5;
 
-  .token.operator,
-  .token.boolean,
-  .token.number {
-    color: ${props => props.theme.codeNumber};
-  }
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
 
-  .token.property {
-    color: ${props => props.theme.codeProperty};
-  }
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    color: #eee;
+}
 
-  .token.tag {
-    color: ${props => props.theme.codeTag};
-  }
+/* Code blocks */
+pre[class*="language-"] {
+    overflow: hidden;
+}
 
-  .token.string {
-    color: ${props => props.theme.codeString};
-  }
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+    border-radius: 0.3em;
+    white-space: normal;
+}
 
-  .token.selector {
-    color: ${props => props.theme.codeSelector};
-  }
+h3 .language-typescript .token.parameter,
+h3 .language-typescript .token.keyword,
+h3 .language-typescript .token.operator,
+h3 .language-typescript .token.builtin {
+    color: #888;
+    font-weight: 500;
+}
+div[class*="framer-"] h3 > code,
+div[class*="framer-"] h3 > code .token,
+div[class*="framer-"] h3 > code .token.tag > .token.tag,
+div[class*="framer-"] p code {
+    color: #333;
+    font-weight: 500;
+}
+div[class*="framer-"] p code {
+    font-weight: 600;
+}
+.framer-function h3 > code {
+    color: #888 !important;
+}
+.framer-property h3 > code {
+    color: #333 !important;
+}
+.framer-property h3 > code .token {
+    color: #888 !important;
+}
 
-  .token.attr-name {
-    color: ${props => props.theme.codeAttr};
-  }
+p code,
+div > code,
+li > code {
+    font-family: "Input", "Menlo", "Monaco", Courier, monospace;
+    font-weight: 600;
+    font-size: 13px;
+}
+div[class*="framer-"] h5 > code .token.token.punctuation {
+    color: #555;
+}
 
-  .token.entity,
-  .token.url,
-  .language-css .token.string,
-  .style .token.string {
-    color: ${props => props.theme.codeEntity};
-  }
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+    color: #666;
+}
 
-  .token.attr-value,
-  .token.keyword,
-  .token.control,
-  .token.directive,
-  .token.unit {
-    color: ${props => props.theme.codeKeyword};
-  }
+.token.punctuation {
+    color: #999;
+}
 
-  .token.function {
-    color: ${props => props.theme.codeFunction};
-  }
+.namespace {
+    opacity: 0.7;
+}
 
-  .token.statement,
-  .token.regex,
-  .token.atrule {
-    color: ${props => props.theme.codeStatement};
-  }
+.token.property,
+.token.tag > .token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+    color: #fc6;
+}
 
-  .token.placeholder,
-  .token.variable {
-    color: ${props => props.theme.codePlaceholder};
-  }
+.token.function,
+.token.class-name {
+    color: #fc6;
+}
 
-  .token.deleted {
-    text-decoration: line-through;
-  }
+.token.attr-name,
+.token.number,
+.token.keyword {
+    color: #aaddff;
+}
 
-  .token.inserted {
-    border-bottom: 1px dotted ${props => props.theme.codeInserted};
-    text-decoration: none;
-  }
+.token.number {
+    color: #f97;
+}
 
-  .token.italic {
-    font-style: italic;
-  }
+.token.constant {
+    color: #2cd;
+}
 
-  .token.important,
-  .token.bold {
+.token.attr-value,
+.token.selector,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+    color: #bb88ff;
+}
+
+.token.operator {
+    color: #999;
+}
+
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+    color: #444;
+}
+
+.token.atrule,
+.token.keyword {
+    color: #0bf;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+    color: #444;
+}
+
+.token.important,
+.token.bold {
     font-weight: bold;
-  }
+}
+.token.italic {
+    font-style: italic;
+}
 
-  .token.important {
-    color: ${props => props.theme.codeImportant};
-  }
-
-  .token.entity {
+.token.entity {
     cursor: help;
-  }
+}
+
+.has-highlight-line .line:not(.highlight-line) {
+    opacity: 0.4;
+    transition: opacity 0.2s;
+}
+
+pre:hover .has-highlight-line .line:not(.highlight-line) {
+    opacity: 1;
+}
+
+
 `;
 
 const Language = styled.select`

@@ -51,7 +51,7 @@ export const light: Theme = {
   ...base,
   background: colors.white,
   text: colors.almostBlack,
-  code: colors.lightBlack,
+  code: colors.white,
 
   toolbarBackground: colors.lightBlack,
   toolbarInput: colors.white10,
