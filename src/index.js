@@ -322,7 +322,7 @@ const StyledEditor = styled(Editor)`
   h4,
   h5,
   h6 {
-    font-weight: 500;
+    font-weight: 700;
   }
 
   ul,

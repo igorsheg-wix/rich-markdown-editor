@@ -12,10 +12,10 @@ import {
   LinkIcon,
   StrikethroughIcon,
 } from "outline-icons";
-
 import type { Theme, Mark, Block } from "../../types";
 import ToolbarButton from "./ToolbarButton";
 import Separator from "./Separator";
+import Heading3Icon from "../icons/Heading3Icon"
 
 type Props = {
   editor: Editor,
@@ -176,6 +176,7 @@ class FormattingToolbar extends React.Component<Props> {
             {!isSelectionInHeading && <Separator />}
             {this.renderBlockButton("heading1", Heading1Icon, "Heading")}
             {this.renderBlockButton("heading2", Heading2Icon, "Subheading")}
+            {this.renderBlockButton("heading3", Heading3Icon, "Subheading")}
             {!isSelectionInHeading &&
               this.renderBlockButton("block-quote", BlockQuoteIcon, "Quote")}
           </React.Fragment>
