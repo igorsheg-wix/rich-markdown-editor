@@ -16,6 +16,7 @@ type Props = {
 type State = {
   active: boolean,
   link: ?Node,
+  button: ?Node,
   top: string,
   left: string,
   mouseDown: boolean,
@@ -26,6 +27,7 @@ export default class Toolbar extends React.Component<Props, State> {
     active: false,
     mouseDown: false,
     link: undefined,
+    button: undefined,
     top: "",
     left: "",
   };
@@ -71,7 +73,8 @@ export default class Toolbar extends React.Component<Props, State> {
     ev.stopPropagation();
 
     const link = this.props.editor.getLinkInSelection();
-    this.setState({ link });
+    const button = this.props.editor.getLinkInSelection();
+    this.setState({ link, button });
   };
 
   update = () => {
@@ -179,10 +182,10 @@ export default class Toolbar extends React.Component<Props, State> {
 }
 
 export const Menu = styled.div`
-  padding: 8px 16px;
+  padding: 10px;
   position: absolute;
   z-index: ${props => {
-    return props.theme.zIndex + 100;
+    return props.theme.zIndex + 999;
   }};
   top: -10000px;
   left: -10000px;
@@ -193,8 +196,10 @@ export const Menu = styled.div`
   transition: opacity 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275),
     transform 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   transition-delay: 150ms;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 7px 25px 0 rgba(0, 0, 0, 0.03),
+    0 4px 12px 0 rgba(0, 0, 0, 0.03);
   line-height: 0;
-  height: 40px;
+  height: 42px;
   box-sizing: border-box;
   pointer-events: none;
   white-space: nowrap;
@@ -208,7 +213,6 @@ export const Menu = styled.div`
     background: ${props => props.theme.toolbarBackground};
     border-radius: 3px;
     z-index: -1;
-
     position: absolute;
     bottom: -2px;
     left: 50%;

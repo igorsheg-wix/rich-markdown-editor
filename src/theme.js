@@ -10,7 +10,7 @@ const colors = {
   white10: "rgba(255, 255, 255, 0.1)",
   black: "#000",
   black10: "rgba(0, 0, 0, 0.1)",
-  primary: "#1AB6FF",
+  primary: "#05f",
   greyLight: "#F4F7FA",
   grey: "#E8EBED",
   greyMid: "#9BA6B2",
@@ -53,9 +53,9 @@ export const light: Theme = {
   text: colors.almostBlack,
   code: colors.white,
 
-  toolbarBackground: colors.lightBlack,
-  toolbarInput: colors.white10,
-  toolbarItem: colors.white,
+  toolbarBackground: colors.white,
+  toolbarInput: colors.almostBlack,
+  toolbarItem: colors.almostBlack,
 
   blockToolbarBackground: colors.greyLight,
   blockToolbarTrigger: colors.greyMid,

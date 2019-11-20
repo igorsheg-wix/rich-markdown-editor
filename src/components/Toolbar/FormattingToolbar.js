@@ -10,16 +10,18 @@ import {
   ItalicIcon,
   BlockQuoteIcon,
   LinkIcon,
+  StarredIcon,
   StrikethroughIcon,
 } from "outline-icons";
 import type { Theme, Mark, Block } from "../../types";
+import Heading3Icon from "../icons/Heading3Icon";
 import ToolbarButton from "./ToolbarButton";
 import Separator from "./Separator";
-import Heading3Icon from "../icons/Heading3Icon"
 
 type Props = {
   editor: Editor,
   onCreateLink: (SyntheticEvent<>) => void,
+  onCreateButton: (SyntheticEvent<>) => void,
   theme: Theme,
 };
 
@@ -101,7 +103,6 @@ class FormattingToolbar extends React.Component<Props> {
       this.props.onCreateLink(ev);
     }
   };
-
   renderMarkButton = (type: Mark, IconClass: Function, tooltip: string) => {
     const { hiddenToolbarButtons } = this.props.theme;
     const Tooltip = this.props.editor.props.tooltip;

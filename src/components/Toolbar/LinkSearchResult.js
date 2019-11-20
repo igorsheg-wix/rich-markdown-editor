@@ -14,7 +14,7 @@ class LinkSearchResult extends React.Component<Props> {
     return (
       <ListItem {...rest} href="">
         <i>
-          <NextIcon light />
+          <NextIcon dark />
         </i>
         {title}
       </ListItem>
@@ -25,18 +25,18 @@ class LinkSearchResult extends React.Component<Props> {
 const ListItem = styled.a`
   display: flex;
   align-items: center;
-  height: 28px;
+  height: 24px;
   padding: 6px 8px 6px 0;
   color: ${props => props.theme.toolbarItem};
   font-family: ${props => props.theme.fontFamily};
-  font-size: 15px;
+  font-size: 14px;
   text-decoration: none;
   overflow: hidden;
   white-space: nowrap;
 
-  i {
+  /* i {
     visibility: hidden;
-  }
+  } */
 
   &:hover,
   &:focus,

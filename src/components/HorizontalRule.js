@@ -10,7 +10,6 @@ function HorizontalRule(props: SlateNodeProps) {
 
 const StyledHr = styled.hr`
   margin: 2em 0;
-  margin: 0;
   border: 0;
   border-bottom: 1px solid
     ${props =>

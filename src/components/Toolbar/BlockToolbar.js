@@ -18,6 +18,7 @@ import {
 import getDataTransferFiles from "../../lib/getDataTransferFiles";
 import type { SlateNodeProps, Theme } from "../../types";
 import EditList from "../../plugins/EditList";
+import Heading3Icon from "../icons/Heading3Icon";
 import ToolbarButton from "./ToolbarButton";
 
 const { changes } = EditList;
@@ -186,6 +187,7 @@ class BlockToolbar extends React.Component<Props> {
       <Bar {...attributes} ref={ref => (this.bar = ref)}>
         {this.renderBlockButton("heading1", Heading1Icon, "Add heading")}
         {this.renderBlockButton("heading2", Heading2Icon, "Add subheading")}
+        {this.renderBlockButton("heading3", Heading3Icon, "Add subheading")}
         <Separator />
         {this.renderBlockButton(
           "bulleted-list",
@@ -235,19 +237,13 @@ const Bar = styled.div`
   }};
   position: relative;
   align-items: center;
-  background: ${props => props.theme.blockToolbarBackground};
+  background: ${props => props.theme.background};
   height: 44px;
-
-  &:before,
-  &:after {
-    content: "";
-    position: absolute;
-    left: -100%;
-    width: 100%;
-    height: 44px;
-    background: ${props => props.theme.blockToolbarBackground};
-  }
-
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 7px 25px 0 rgba(0, 0, 0, 0.03),
+    0 4px 12px 0 rgba(0, 0, 0, 0.03);
+  border-radius: 4px;
+  padding: 0 10px;
+  margin: 6px 0;
   &:after {
     left: auto;
     right: -100%;

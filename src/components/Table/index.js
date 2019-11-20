@@ -53,8 +53,8 @@ class Table extends React.Component<Props> {
 const StyledTable = styled.table`
   width: 100%;
   border-collapse: collapse;
-  border-radius: 4px;
   border: 1px solid ${props => props.theme.tableDivider};
+  border-radius: 4px;
   margin-top: 1em;
 
   * { 

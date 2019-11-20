@@ -263,30 +263,30 @@ class LinkToolbar extends React.Component<Props, State> {
 }
 
 const SearchResults = styled.div`
-  background: ${props => props.theme.toolbarBackground};
+  background: ${props => props.theme.white};
   position: absolute;
   top: 100%;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 7px 25px 0 rgba(0, 0, 0, 0.03),
+    0 4px 12px 0 rgba(0, 0, 0, 0.03);
   width: 100%;
   height: auto;
   left: 0;
-  padding: 8px;
-  margin-top: -3px;
-  margin-bottom: 0;
+  padding: 12px;
   border-radius: 0 0 4px 4px;
+  margin: -3px 0 0 0;
+  color: ${props => props.theme.almostBlack};
 `;
 
 const LinkEditor = styled(Flex)`
-  margin-left: -8px;
-  margin-right: -8px;
+  /* margin-left: -8px;
+  margin-right: -8px; */
   min-width: 300px;
 `;
 
 const Input = styled.input`
-  font-size: 15px;
-  background: ${props => props.theme.toolbarInput};
-  color: ${props => props.theme.toolbarItem};
-  border-radius: 2px;
-  padding: 4px 8px;
+  font-size: 14px;
+  background: ${props => props.theme.white};
+  color: ${props => props.theme.almostBlack};
   border: 0;
   margin: 0;
   outline: none;

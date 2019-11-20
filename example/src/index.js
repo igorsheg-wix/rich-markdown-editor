@@ -8,7 +8,6 @@ const element = document.getElementById("main");
 const savedText = localStorage.getItem("saved");
 const exampleText = `
 # Welcome
-
 This is example content. It is persisted between reloads in localStorage.
 `;
 const defaultValue = savedText || exampleText;

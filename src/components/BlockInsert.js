@@ -83,8 +83,8 @@ class BlockInsert extends React.Component<Props, State> {
         newState.left = -1000;
         newState.active = false;
       } else {
-        newState.left = Math.round(result.bounds.left - 20);
-        newState.top = Math.round(result.bounds.top + window.scrollY);
+        newState.left = Math.round(result.bounds.left - 30);
+        newState.top = Math.round(result.bounds.top + window.scrollY - 3);
       }
     }
 
@@ -142,8 +142,9 @@ class BlockInsert extends React.Component<Props, State> {
         <Portal>
           <Trigger active={this.state.active} style={style}>
             <PlusIcon
+              size="18"
               onClick={this.handleClick}
-              color={theme.blockToolbarTrigger}
+              color={theme.primary}
             />
           </Trigger>
         </Portal>
@@ -163,16 +164,27 @@ const Trigger = styled.div`
     transform 150ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
   line-height: 0;
   margin-left: -10px;
-  box-shadow: inset 0 0 0 2px ${props => props.theme.blockToolbarTrigger};
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1), 0 7px 25px 0 rgba(0, 0, 0, 0.03),
+    0 4px 12px 0 rgba(0, 0, 0, 0.03);
   border-radius: 100%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
   transform: scale(0.9);
   cursor: pointer;
 
+  &:after {
+    box-shadow: 0 7px 25px 0 rgba(0, 0, 0, 0.03),
+      0 4px 12px 0 rgba(0, 0, 0, 0.03);
+  }
   &:hover {
-    background-color: ${props => props.theme.blockToolbarTrigger};
+    background-color: ${props => props.theme.primary};
 
     svg {
-      fill: ${props => props.theme.blockToolbarTriggerIcon};
+      fill: ${props => props.theme.background};
     }
   }
 

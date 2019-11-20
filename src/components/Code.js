@@ -71,6 +71,7 @@ const Code = styled.code`
   overflow-x: auto;
   padding: 30px;
   border-radius: 6px;
+  caret-color: ${props => props.theme.white};
   margin: 1em 0;
   line-height: 1.4em;
   background: #151515;
@@ -339,9 +340,6 @@ const Language = styled.select`
 
 const Container = styled.div`
   position: relative;
-  background: ${props => props.theme.codeBackground};
-  border-radius: 4px;
-  border: 1px solid ${props => props.theme.codeBorder};
 
   &:hover {
     > span {

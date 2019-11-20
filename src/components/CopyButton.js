@@ -40,7 +40,6 @@ const StyledCopyToClipboard = styled(CopyToClipboard)`
   position: absolute;
   top: 0;
   right: 0;
-
   opacity: 0;
   transition: opacity 50ms ease-in-out;
   z-index: ${props => {
@@ -48,10 +47,10 @@ const StyledCopyToClipboard = styled(CopyToClipboard)`
   }}; /* must be below toolbar index */
   font-size: 12px;
   font-weight: 500;
-  color: ${props => props.theme.text};
-  background: ${props => props.theme.codeBorder};
-  border-radius: 0 4px 0 0;
-  padding: 2px 6px;
+  color: ${props => props.theme.white};
+  background: ${props => props.theme.lightBlack};
+  border-radius: 0 4px 0 4px;
+  padding: 6px 12px;
   cursor: pointer;
 `;
 
