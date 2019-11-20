@@ -288,7 +288,9 @@ const Input = styled.input`
   background: ${props => props.theme.white};
   color: ${props => props.theme.almostBlack};
   border: 0;
+  line-height: 1em;
   margin: 0;
+  height: 21px;
   outline: none;
   flex-grow: 1;
 `;

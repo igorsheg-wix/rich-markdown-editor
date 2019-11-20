@@ -370,10 +370,10 @@ const StyledEditor = styled(Editor)`
   }
 
   blockquote {
-    border-left: 3px solid ${props => props.theme.quote};
     margin: 0;
-    padding-left: 10px;
-    font-style: italic;
+    background-color: rgb(248, 248, 248);
+    padding: 18px;
+    border-radius: 6px;
   }
 
   b,
