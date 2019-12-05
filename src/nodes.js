@@ -23,13 +23,21 @@ import {
 import Paragraph from "./components/Paragraph";
 import type { SlateNodeProps } from "./types";
 
-function renderNode(props: SlateNodeProps, editor: Editor, next: Function) {
+function renderNode(
+  props: SlateNodeProps,
+  editor: Editor,
+  { index, child },
+  next: Function
+) {
   const { attributes } = props;
 
   const hidden = props.node.data.get("hidden");
   if (hidden) attributes.style = { display: "none" };
 
   switch (props.node.type) {
+    case "child_type_invalid":
+      const type = index === 0 ? "heading1" : "paragraph";
+      return editor.setNodeByKey(child.key, type);
     case "paragraph":
       return <Paragraph {...props} />;
     case "block-toolbar":

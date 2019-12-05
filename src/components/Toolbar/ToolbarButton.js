@@ -13,14 +13,18 @@ export default styled.button`
   transition: opacity 100ms ease-in-out;
   padding: 0;
   opacity: 0.7;
-
+  & svg {
+    fill: ${props =>
+      props.active ? props.theme.primary : props.theme.almostBlack};
+  }
   &:first-child {
     margin-left: 0;
   }
 
   &:hover {
     opacity: 1;
+    & svg {
+      fill: ${props => props.theme.primary};
+    }
   }
-
-  ${({ active }) => active && "opacity: 1;"};
 `;

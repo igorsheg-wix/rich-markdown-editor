@@ -50,7 +50,7 @@ class Image extends React.Component<Props, State> {
     const showCaption = !readOnly || caption;
 
     return (
-      <CenteredImage contentEditable={false}>
+      <CenteredImage className={"postImage"} contentEditable={false}>
         {this.state.hasError ? (
           <React.Fragment>
             <ErrorImg as="div" isSelected={isSelected} />

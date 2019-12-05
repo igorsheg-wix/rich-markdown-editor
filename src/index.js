@@ -308,7 +308,7 @@ class RichMarkdownEditor extends React.PureComponent<Props, State> {
 }
 
 const StyledEditor = styled(Editor)`
-  color: ${props => props.theme.text};
+  /* color: ${props => props.theme.text};
   background: ${props => props.theme.background};
   font-family: ${props => props.theme.fontFamily};
   font-weight: ${props => props.theme.fontWeight};
@@ -323,6 +323,15 @@ const StyledEditor = styled(Editor)`
   h5,
   h6 {
     font-weight: 700;
+  }
+  h1 {
+    font-size: 48px;
+  }
+  h2 {
+    font-size: 24px;
+  }
+  h3 {
+    font-size: 18px;
   }
 
   ul,
@@ -379,7 +388,7 @@ const StyledEditor = styled(Editor)`
   b,
   strong {
     font-weight: 600;
-  }
+  } */
 `;
 
 export default RichMarkdownEditor;

@@ -82,6 +82,7 @@ class Contents extends React.Component<Props, State> {
         <Sections>
           {headings.map(heading => {
             const slug = headingToSlug(editor.value.document, heading);
+            console.log(slug);
             const active = this.state.activeHeading === slug;
 
             return (

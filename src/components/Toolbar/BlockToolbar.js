@@ -120,6 +120,7 @@ class BlockToolbar extends React.Component<Props> {
     switch (type) {
       case "heading1":
       case "heading2":
+      case "heading3":
       case "block-quote":
       case "table":
       case "code":
