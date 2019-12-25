@@ -1,7 +1,7 @@
 // @flow
 import * as React from "react";
 import styled from "styled-components";
-import { CollapsedIcon } from "outline-icons";
+import { CollapsedIcon, LinkIcon } from "outline-icons";
 import type { SlateNodeProps } from "../types";
 import headingToSlug from "../lib/headingToSlug";
 import CopyToClipboard from "./CopyToClipboard";
@@ -60,7 +60,9 @@ function Heading(props: Props) {
           }
           text={`${origin}${pathToHeading}`}
         >
-          <span>#</span>
+          <span>
+            <LinkIcon size={24} />
+          </span>
         </Anchor>
       )}
     </Component>
@@ -76,7 +78,8 @@ const CollapseToggle = styled.a`
   cursor: pointer;
   width: 24px;
   height: 24px;
-
+  justify-content: center;
+  display: flex;
   svg {
     ${props => props.collapsed && "transform: rotate(-90deg);"};
     fill: ${props =>
@@ -88,7 +91,7 @@ const CollapseToggle = styled.a`
     text-decoration: none;
 
     svg {
-      fill: ${props => props.theme.text};
+      fill: ${props => props.theme.primary};
     }
   }
 `;
@@ -108,6 +111,8 @@ const HiddenAnchor = styled.a`
 const Anchor = styled(CopyToClipboard)`
   visibility: hidden;
   padding-left: 0.25em;
+  margin: 3px 0 0 0;
+  display: flex;
 `;
 
 export const StyledHeading = styled(Heading)`
@@ -122,13 +127,14 @@ export const StyledHeading = styled(Heading)`
     }
 
     ${Anchor} {
-      color: ${props => props.theme.placeholder};
-      visibility: visible;
-      text-decoration: none;
-      cursor: pointer;
-
-      &:hover {
-        color: ${props => props.theme.text};
+      & svg {
+        fill: ${props => props.theme.placeholder};
+        visibility: visible;
+        text-decoration: none;
+        cursor: pointer;
+        &:hover {
+          fill: ${props => props.theme.primary};
+        }
       }
     }
   }

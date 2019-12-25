@@ -69,15 +69,15 @@ export default function CodeBlock({
 const Code = styled.code`
   display: block;
   overflow-x: auto;
-  padding: 30px;
+  padding: 24px;
   border-radius: 6px;
   caret-color: ${props => props.theme.white};
-  margin: 1em 0;
   line-height: 1.4em;
   background: #151515;
 
   pre {
-    -webkit-font-smoothing: initial;
+    -webkit-font-smoothing: subpixel-antialiased;
+	-moz-osx-font-smoothing: subpixel-antialiased;
     font-family: ${props => props.theme.fontFamilyMono}
     font-size: 13px;
     direction: ltr;

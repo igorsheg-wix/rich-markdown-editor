@@ -13,7 +13,6 @@ const queries = {
     const { startBlock } = value;
     return !!(startBlock && startBlock.type.match(/heading/));
   },
-
   getLinkInSelection(editor: Editor) {
     try {
       const { value } = editor;

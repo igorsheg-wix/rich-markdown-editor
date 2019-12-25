@@ -9,6 +9,7 @@ import InsertImages from "slate-drop-or-paste-images";
 import PasteLinkify from "slate-paste-linkify";
 import CollapseOnEscape from "slate-collapse-on-escape";
 import Prism from "golery-slate-prism";
+import SoftBreak from "slate-soft-break";
 import Placeholder from "./plugins/Placeholder";
 import EditList from "./plugins/EditList";
 import CollapsableHeadings from "./plugins/CollapsableHeadings";
@@ -44,6 +45,7 @@ const createPlugins = ({
   return [
     Nodes,
     Marks,
+    SoftBreak(),
     PasteLinkify({
       type: "link",
       collapseTo: "end",

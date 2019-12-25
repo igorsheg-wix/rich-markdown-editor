@@ -10,7 +10,6 @@ import {
   ItalicIcon,
   BlockQuoteIcon,
   LinkIcon,
-  StarredIcon,
   StrikethroughIcon,
 } from "outline-icons";
 import type { Theme, Mark, Block } from "../../types";
