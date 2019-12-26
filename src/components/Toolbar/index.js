@@ -200,22 +200,34 @@ export const Menu = styled.div`
     0 4px 12px 0 rgba(0, 0, 0, 0.03);
   line-height: 0;
   height: 42px;
+  display: flex;
   box-sizing: border-box;
   pointer-events: none;
   white-space: nowrap;
 
-  &::before {
-    content: "";
-    display: block;
-    width: 24px;
-    height: 24px;
-    transform: translateX(-50%) rotate(45deg);
-    background: ${props => props.theme.toolbarBackground};
-    border-radius: 3px;
-    z-index: -1;
-    position: absolute;
-    bottom: -2px;
+  &::before,
+  &::after {
+    top: 100%;
     left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &::after {
+    border-color: rgba(136, 183, 213, 0);
+    border-top-color: white;
+    border-width: 9px;
+    margin-left: -9px;
+  }
+  &::before {
+    border-color: rgba(194, 225, 245, 0);
+    border-top-color: rgba(0, 0, 0, 0.1);
+    border-width: 10px;
+    margin-left: -10px;
   }
 
   * {
@@ -225,7 +237,7 @@ export const Menu = styled.div`
   ${({ active }) =>
     active &&
     `
-    transform: translateY(-6px) scale(1);
+    transform: translateY(-16px) scale(1);
     pointer-events: all;
     opacity: 1;
   `};

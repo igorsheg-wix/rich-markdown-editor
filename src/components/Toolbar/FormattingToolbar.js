@@ -12,10 +12,13 @@ import {
   LinkIcon,
   StrikethroughIcon,
 } from "outline-icons";
+import OrderedListIcon from "outline-icons/lib/components/OrderedListIcon";
 import type { Theme, Mark, Block } from "../../types";
 import Heading3Icon from "../icons/Heading3Icon";
+import EditList from "../../plugins/EditList";
 import ToolbarButton from "./ToolbarButton";
 import Separator from "./Separator";
+const { changes } = EditList;
 
 type Props = {
   editor: Editor,
@@ -89,6 +92,17 @@ class FormattingToolbar extends React.Component<Props> {
     }
   };
 
+  handleCreateList = (ev: SyntheticEvent<>) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    this.props.editor.toggleMark("bulleted-list");
+    this.props.editor.command(changes.toggleList, "bulleted-list", undefined, {
+      type: "list-item",
+      data: undefined,
+    });
+  };
+
   handleCreateLink = (ev: SyntheticEvent<>) => {
     ev.preventDefault();
     ev.stopPropagation();
@@ -157,6 +171,8 @@ class FormattingToolbar extends React.Component<Props> {
     const isSelectionInTable = editor.isSelectionInTable();
     const Tooltip = editor.props.tooltip;
 
+    const isListActive = this.hasMark("bulleted-list");
+
     return (
       <React.Fragment>
         {!isSelectionInHeading && (
@@ -171,6 +187,16 @@ class FormattingToolbar extends React.Component<Props> {
             {this.renderMarkButton("code", CodeIcon, "Code")}
           </React.Fragment>
         )}
+        <React.Fragment>
+          <ToolbarButton
+            active={isListActive}
+            onMouseDown={this.handleCreateList}
+          >
+            <Tooltip tooltip="Transform in to a list" placement="top">
+              <OrderedListIcon color={this.props.theme.toolbarItem} />
+            </Tooltip>
+          </ToolbarButton>
+        </React.Fragment>
         {!isSelectionInTable && (
           <React.Fragment>
             {!isSelectionInHeading && <Separator />}

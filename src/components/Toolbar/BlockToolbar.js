@@ -103,6 +103,7 @@ class BlockToolbar extends React.Component<Props> {
       text: "",
       isVoid: false,
     });
+    console.log(checked);
 
     return editor
       .moveToEndOfNode(this.props.node)

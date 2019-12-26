@@ -45,7 +45,7 @@ const createPlugins = ({
   return [
     Nodes,
     Marks,
-    SoftBreak(),
+    SoftBreak({ shift: true }),
     PasteLinkify({
       type: "link",
       collapseTo: "end",
