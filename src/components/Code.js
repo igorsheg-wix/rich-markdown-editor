@@ -71,264 +71,153 @@ const Code = styled.code`
   overflow-x: auto;
   padding: 24px;
   border-radius: 6px;
-  caret-color: ${props => props.theme.white};
+  caret-color: ${props => props.theme.black};
   line-height: 1.4em;
-  background: #151515;
+  background: #fafafa;
+  border: 1px solid #eaeaea;
 
-  pre {
-    -webkit-font-smoothing: subpixel-antialiased;
-	-moz-osx-font-smoothing: subpixel-antialiased;
-    font-family: ${props => props.theme.fontFamilyMono}
-    font-size: 13px;
-    direction: ltr;
+  code[class*="language-"],
+  pre[class*="language-"] {
+    color: #000;
     text-align: left;
     white-space: pre;
     word-spacing: normal;
     word-break: normal;
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
+    font-size: 0.875em;
+    line-height: 1.575em;
     tab-size: 4;
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
     hyphens: none;
-    color: ${props => props.theme.code};
-    margin: 0;
   }
-
-  .brace.curly ~ .assignment,
-.meta.delimiter.method.period.coffee + span {
-    color: #0bf;
-}
-.embedded .meta.brace.round + span,
-.embedded .brace.curly ~ .assignment,
-.embedded .meta.brace.round + span,
-.embedded .meta.delimiter.method.period.coffee + span {
-    color: #75de00;
-}
-
-pre {
-    position: relative;
-}
-pre code {
-    font-family: "Input", "Menlo", "Monaco", Courier, monospace;
-    font-weight: 500;
-    display: block;
-    font-size: 13px;
-    font-weight: normal;
-    -webkit-font-smoothing: subpixel-antialiased;
-    -webkit-text-size-adjust: 100%;
-    max-width: 600px;
-    background: transparent;
-    color: white;
-    overflow-y: hidden;
-    overflow-x: scroll;
-    padding-right: 40px;
-    padding-bottom: 20px;
-    position: relative;
-}
-pre *::selection {
-    background: rgba(255, 255, 255, 0.25) !important;
-    color: inherit;
-}
-pre code::-webkit-scrollbar {
-    height: 5px;
-}
-pre code::-webkit-scrollbar,
-pre code::-webkit-scrollbar-thumb {
-    border-radius: 10px;
-    background: rgba(255, 255, 255, 0);
-}
-pre:hover code::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.2);
-}
-pre code::-webkit-scrollbar-thumb:horizontal:hover,
-pre code::-webkit-scrollbar-thumb:vertical:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-pre > span {
-    position: relative;
-}
-pre:after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 80px;
-    height: 100%;
-    background: linear-gradient(to left, #151515, rgba(21, 21, 21, 0));
-    pointer-events: none;
-}
-pre code span {
-    line-height: 1.6;
-}
-
-code[class*="language-"] {
-    text-align: left;
-    white-space: pre;
-    word-spacing: normal;
-    word-break: normal;
-    word-wrap: normal;
-    line-height: 1.5;
-
-    -moz-tab-size: 4;
-    -o-tab-size: 4;
-    tab-size: 4;
-
-    -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
-    hyphens: none;
-    color: #eee;
-}
-
-/* Code blocks */
-pre[class*="language-"] {
-    overflow: hidden;
-}
-
-/* Inline code */
-:not(pre) > code[class*="language-"] {
-    border-radius: 0.3em;
-    white-space: normal;
-}
-
-h3 .language-typescript .token.parameter,
-h3 .language-typescript .token.keyword,
-h3 .language-typescript .token.operator,
-h3 .language-typescript .token.builtin {
-    color: #888;
-    font-weight: 500;
-}
-div[class*="framer-"] h3 > code,
-div[class*="framer-"] h3 > code .token,
-div[class*="framer-"] h3 > code .token.tag > .token.tag,
-div[class*="framer-"] p code {
-    color: #333;
-    font-weight: 500;
-}
-div[class*="framer-"] p code {
-    font-weight: 600;
-}
-.framer-function h3 > code {
-    color: #888 !important;
-}
-.framer-property h3 > code {
-    color: #333 !important;
-}
-.framer-property h3 > code .token {
-    color: #888 !important;
-}
-
-p code,
-div > code,
-li > code {
-    font-family: "Input", "Menlo", "Monaco", Courier, monospace;
-    font-weight: 600;
-    font-size: 13px;
-}
-div[class*="framer-"] h5 > code .token.token.punctuation {
-    color: #555;
-}
-
-.token.comment,
-.token.prolog,
-.token.doctype,
-.token.cdata {
-    color: #666;
-}
-
-.token.punctuation {
+  .token.comment,
+  .token.prolog,
+  .token.doctype,
+  .token.cdata {
     color: #999;
-}
-
-.namespace {
+  }
+  .token.namespace {
     opacity: 0.7;
-}
-
-.token.property,
-.token.tag > .token.tag,
-.token.boolean,
-.token.number,
-.token.constant,
-.token.symbol,
-.token.deleted {
-    color: #fc6;
-}
-
-.token.function,
-.token.class-name {
-    color: #fc6;
-}
-
-.token.attr-name,
-.token.number,
-.token.keyword {
-    color: #aaddff;
-}
-
-.token.number {
-    color: #f97;
-}
-
-.token.constant {
-    color: #2cd;
-}
-
-.token.attr-value,
-.token.selector,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted {
-    color: #bb88ff;
-}
-
-.token.operator {
-    color: #999;
-}
-
-.token.entity,
-.token.url,
-.language-css .token.string,
-.style .token.string {
-    color: #444;
-}
-
-.token.atrule,
-.token.keyword {
-    color: #0bf;
-}
-
-.token.regex,
-.token.important,
-.token.variable {
-    color: #444;
-}
-
-.token.important,
-.token.bold {
+  }
+  .token.string,
+  .token.attr-value {
+    color: #028265;
+  }
+  .token.punctuation,
+  .token.operator {
+    color: #000;
+  }
+  .token.url,
+  .token.symbol,
+  .token.boolean,
+  .token.variable,
+  .token.constant {
+    color: #36acaa;
+  }
+  .token.atrule,
+  .language-autohotkey .token.selector,
+  .language-json .token.boolean,
+  code[class*="language-css"] {
+    font-weight: 600;
+  }
+  .language-json .token.boolean {
+    color: #0076ff;
+  }
+  .token.keyword {
+    color: #ff0078;
+    font-weight: bolder;
+  }
+  .token.function,
+  .token.tag,
+  .token.class-name,
+  .token.number,
+  .token.tag .token.punctuation {
+    color: #0076ff;
+  }
+  .language-autohotkey .token.tag {
+    color: #9a050f;
+  }
+  .token.selector,
+  .language-autohotkey .token.keyword {
+    color: #00009f;
+  }
+  .token.important,
+  .token.bold {
     font-weight: bold;
-}
-.token.italic {
+  }
+  .token.italic {
     font-style: italic;
-}
-
-.token.entity {
-    cursor: help;
-}
-
-.has-highlight-line .line:not(.highlight-line) {
-    opacity: 0.4;
-    transition: opacity 0.2s;
-}
-
-pre:hover .has-highlight-line .line:not(.highlight-line) {
-    opacity: 1;
-}
-
-
+  }
+  .token.deleted {
+    color: red;
+    font-weight: bolder;
+  }
+  .token.inserted {
+    color: #0076ff;
+    font-weight: bolder;
+  }
+  .language-json .token.property,
+  .language-markdown .token.title {
+    color: #000;
+    font-weight: bolder;
+  }
+  .language-markdown .token.code {
+    color: #0076ff;
+    font-weight: normal;
+  }
+  .language-markdown .token.list,
+  .language-markdown .token.hr {
+    color: #999;
+  }
+  .language-markdown .token.url {
+    color: #ff0078;
+    font-weight: bolder;
+  }
+  .token.selector {
+    color: #2b91af;
+  }
+  .token.property,
+  .token.entity {
+    color: #f00;
+  }
+  .token.attr-name,
+  .token.regex {
+    color: #d9931e;
+  }
+  .token.directive.tag .tag {
+    background: #ff0;
+    color: #393a34;
+  }
+  /* dark */
+  pre.dark[class*="language-"] {
+    color: #fafbfc;
+  }
+  .language-json .dark .token.boolean {
+    color: #0076ff;
+  }
+  .dark .token.string {
+    color: #50e3c2;
+  }
+  .dark .token.function,
+  .dark .token.tag,
+  .dark .token.class-name,
+  .dark .token.number {
+    color: #2ba8ff;
+  }
+  .dark .token.attr-value,
+  .dark .token.punctuation,
+  .dark .token.operator {
+    color: #efefef;
+  }
+  .dark .token.attr-name,
+  .dark .token.regex {
+    color: #fac863;
+  }
+  .language-json .dark .token.property,
+  .language-markdown .dark .token.title {
+    color: #fff;
+  }
+  .language-markdown .dark .token.code {
+    color: #50e3c2;
+  }
 `;
 
 const Language = styled.select`
